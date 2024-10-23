@@ -14,11 +14,7 @@ const AuthProvider = ({children})=>{
     useEffect(()=>{
 
         const fetchProfile = async () => {
-                try {
-        // token should be let type variable because its value will change in every login. (in backend also)
-        let token = localStorage.getItem("jwt"); // Retrieve the token directly from the localStorage (Go to login.jsx)
-        console.log(token);
-        if (token) {
+            try {
                 const {data} = await axios.get(`${BACKEND_URL}/api/user/profile`,
                     {
                         withCredentials : true,
@@ -26,7 +22,6 @@ const AuthProvider = ({children})=>{
                 );
                 setProfile(data.user);
                 setAuthenticated(true);
-        }
 
             } catch (error) {
                 console.log(error);
