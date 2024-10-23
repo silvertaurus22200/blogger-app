@@ -5,6 +5,7 @@ import { IoClose } from "react-icons/io5";
 import { useAuth } from "../context/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { BACKEND_URL } from "../utility";
 
 
 function Navbar() {
@@ -16,7 +17,7 @@ function Navbar() {
     const handleLogout = async ()=> {
         
         try {
-            await axios.post("http://localhost:3000/api/user/logout",{},{withCredentials : true}
+            await axios.post(`${BACKEND_URL}/api/user/logout`,{},{withCredentials : true}
             );
             setProfile(null)
             setAuthenticated(false);
