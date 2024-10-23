@@ -41,7 +41,7 @@ function App() {
           <Route path = "/blog/update/:id" element={<UpdateBlog />} />
           <Route path = "/blogs" element={<Blogs />} />
           <Route path = "/blog/:id" element={authenticated ? <Detail /> : <Login />} />
-          <Route path = "*" element={<NotFound />} />
+          <Route exact path = "*" element={<NotFound />} />
         </Routes>
 
         {!hideNavbarFooter && <Footer /> }       
