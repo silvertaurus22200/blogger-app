@@ -15,7 +15,7 @@ const AuthProvider = ({children})=>{
 
         const fetchProfile = async () => {
             try {
-                const {data} = await axios.get(`/api/user/profile`,
+                const {data} = await axios.get(`${BACKEND_URL}/api/user/profile`,
                     {
                         withCredentials : true,
                     }
@@ -32,7 +32,7 @@ const AuthProvider = ({children})=>{
 
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get(`/api/blog/blogs`);
+                const response = await axios.get(`${BACKEND_URL}/api/blog/blogs`);
                 setBlogs(response.data.blogs)
 
             } catch (error) {
