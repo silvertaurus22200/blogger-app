@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api" : {
-        target: 'https://blogger-app-rouge.vercel.app',
+        target: 'https://blogger-app-duq6.onrender.com',
         changeOrigin : true,
       }
     }
