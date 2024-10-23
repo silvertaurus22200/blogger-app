@@ -32,6 +32,7 @@ function Login() {
                     }
                 )
                 console.log(data);
+                localStorage.setItem("jwt", data.token); // storing token in localStorage so that if user refreshed the page it will not redirect again in login
                 toast.success(data.message || "login successful")
                 setAuthenticated(true);
                 navigateTo("/")
