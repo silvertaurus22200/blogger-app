@@ -99,7 +99,13 @@ const login = async (req, res) => {
 const logout = (req, res) => {
 
     try {
-        res.clearCookie("jwt");
+        res.clearCookie("jwt",
+             {
+                httpOnly: false,  // Ensure it matches the options used when setting
+                secure: true,    // Set to true if using HTTPS
+                sameSite: 'None', // Match the sameSite attribute
+             }
+        );
         console.log("cookies",req.cookies);
         res.status(200).json({message: "logged out successfully"});
     } catch (error) {
