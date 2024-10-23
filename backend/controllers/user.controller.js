@@ -100,6 +100,7 @@ const logout = (req, res) => {
 
     try {
         res.clearCookie("jwt");
+        console.log("cookies",res.cookies);
         res.status(200).json({message: "logged out successfully"});
     } catch (error) {
         res.status(500).json({error})

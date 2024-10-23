@@ -22,7 +22,7 @@ function Navbar() {
             setProfile(null)
             setAuthenticated(false);
             console.log("profile", profile);
-            console.log("auth", authenticated)
+            console.log("auth",authenticated)
             toast.success("successfully logged out")
             navigateTo("/")
         } catch (error) {
