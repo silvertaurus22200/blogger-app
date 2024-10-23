@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom"
+import { BACKEND_URL } from "../utility";
 
 function UpdateBlog() {
   const {id} = useParams();
@@ -16,7 +17,7 @@ function UpdateBlog() {
   useEffect(()=>{
     const fetchBlog = async () => {
       try {
-        const {data} = await axios.get(`http://localhost:3000/api/blog/${id}`,{
+        const {data} = await axios.get(`${BACKEND_URL}/api/blog/${id}`,{
           withCredentials : true
         })
         setTitle(data.title);
@@ -40,7 +41,7 @@ function UpdateBlog() {
   console.log(formData);
   try {
       setPending(true);
-      const {data} = await axios.put(`http://localhost:3000/api/blog/update/${id}`,formData,
+      const {data} = await axios.put(`${BACKEND_URL}/api/blog/update/${id}`,formData,
           {
               headers : {
                   "Content-Type" : "multipart/form-data",

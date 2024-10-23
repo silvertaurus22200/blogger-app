@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"
 import toast from "react-hot-toast"
 import { useAuth } from "../context/AuthProvider";
+import { BACKEND_URL } from "../utility";
 
 function Login() {
 
@@ -17,7 +18,7 @@ function Login() {
             e.preventDefault();
 
             try {
-                const {data} = await axios.post("http://localhost:3000/api/user/login",
+                const {data} = await axios.post(`${BACKEND_URL}/api/user/login`,
                     {
                         role,
                         email,

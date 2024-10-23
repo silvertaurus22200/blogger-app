@@ -5,6 +5,7 @@ import { BiSolidLeftArrowAlt } from "react-icons/bi";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { BACKEND_URL } from "../utility";
 
 function Sidebar({setComponent}) {
 
@@ -24,7 +25,7 @@ function Sidebar({setComponent}) {
     const handleLogout = async () => {
 
         try {
-            await axios.post("http://localhost:3000/api/user/logout",{},{withCredentials : true}
+            await axios.post(`${BACKEND_URL}/api/user/logout`,{},{withCredentials : true}
             );
             setProfile(null)
             setAuthenticated(false);

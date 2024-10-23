@@ -1,0 +1,1 @@
+export const BACKEND_URL = "https://blogger-app-duq6.onrender.com"

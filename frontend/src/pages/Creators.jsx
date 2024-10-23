@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
 import  axios from "axios"
+import { BACKEND_URL } from "../utility";
+
 function Creators() {
     const [admins , setAdmins] = useState([]);
 
     useEffect(()=>{
         const fetchAdmins = async ()=>{
-            const {data} = await axios.get("http://localhost:3000/api/user/admins")
+            const {data} = await axios.get(`${BACKEND_URL}/api/user/admins`)
             setAdmins(data.admins);
         }
         fetchAdmins();

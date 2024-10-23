@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useState, useEffect, useContext } from "react";
 import toast from "react-hot-toast";
+import { BACKEND_URL } from "../utility";
 
 
 const AuthContext = createContext();
@@ -14,7 +15,7 @@ const AuthProvider = ({children})=>{
 
         const fetchProfile = async () => {
             try {
-                const {data} = await axios.get("http://localhost:3000/api/user/profile",
+                const {data} = await axios.get(`${BACKEND_URL}/api/user/profile`,
                     {
                         withCredentials : true,
                     }
@@ -31,7 +32,7 @@ const AuthProvider = ({children})=>{
 
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/api/blog/blogs");
+                const response = await axios.get(`${BACKEND_URL}/api/blog/blogs`);
                 setBlogs(response.data.blogs)
 
             } catch (error) {
